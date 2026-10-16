@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { background: #0a0a0a; scroll-behavior: smooth; }
+  body { @apply bg-ink font-sans text-paper antialiased; overflow-x: hidden; }
+  section[id] { scroll-margin-top: 84px; }
+  ::selection { background: rgba(91, 141, 214, 0.35); color: #fff; }
+}
+
+@layer components {
+  .card { background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012)); }
+  .inset { background: #0c0c0c; box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); }
+  .eyebrow { @apply font-mono text-xs uppercase tracking-[0.14em] text-mute; }
+  .h2 { @apply font-display text-4xl font-extrabold leading-[1] tracking-[-0.03em] sm:text-5xl md:text-6xl; }
+  .cmd { @apply rounded-md border border-line bg-black px-2.5 py-1 font-mono text-xs text-paper; }
+  .marquee-mask {
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee, .animate-spin, .animate-ping { animation: none; }
+}
