@@ -1,4 +1,4 @@
-import type { SVGProps } from 'react';
+import { useId, type SVGProps } from 'react';
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -10,28 +10,38 @@ export function DiscordIcon(props: IconProps) {
   );
 }
 
+/** Chrome ring: an asymmetric metal gradient spins so a glint travels around it. */
 export function LogoMark(props: IconProps) {
+  const id = useId().replace(/:/g, '');
   return (
-    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" {...props}>
-      <circle cx="10" cy="10" r="7.5" stroke="currentColor" strokeWidth="2" />
-      <circle cx="10" cy="10" r="2.5" fill="currentColor" />
+    <svg viewBox="0 0 32 32" aria-hidden="true" {...props}>
+      <defs>
+        <linearGradient id={`ring-${id}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset=".22" stopColor="#8c8c91" />
+          <stop offset=".45" stopColor="#e9e9eb" />
+          <stop offset=".62" stopColor="#3f3f44" />
+          <stop offset=".85" stopColor="#c6c6ca" />
+          <stop offset="1" stopColor="#5a5a5f" />
+        </linearGradient>
+        <radialGradient id={`core-${id}`} cx=".35" cy=".3" r=".9">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset=".5" stopColor="#a9a9ae" />
+          <stop offset="1" stopColor="#3c3c40" />
+        </radialGradient>
+      </defs>
+      <g style={{ transformOrigin: '16px 16px', animation: 'spin 5s linear infinite' }}>
+        <circle cx="16" cy="16" r="12" fill="none" stroke={`url(#ring-${id})`} strokeWidth="4" />
+      </g>
+      <circle cx="16" cy="16" r="4.5" fill={`url(#core-${id})`} />
     </svg>
   );
 }
 
-export function PlusIcon(props: IconProps) {
+export function ArrowUpRightIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" {...props}>
-      <path d="M8 2v12M2 8h12" />
-    </svg>
-  );
-}
-
-export function LockIcon(props: IconProps) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" {...props}>
-      <rect x="3" y="7" width="10" height="7" rx="1.5" />
-      <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" />
+      <path d="M5 11 11 5M6 5h5v5" />
     </svg>
   );
 }

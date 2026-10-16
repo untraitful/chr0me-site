@@ -5,22 +5,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#0a0a0a',
-        paper: '#ededeb',
-        mute: '#8b8b8b',
-        accent: '#5b8dd6',
-        line: 'rgba(255,255,255,0.08)',
+        ink: '#050505',
+        paper: '#ececec',
+        mute: '#8a8a8e',
+        steel: '#5c5c62',
+        line: 'rgba(255,255,255,0.09)',
       },
       fontFamily: {
         display: ['"Inter Tight"', 'Inter', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
-      },
-      keyframes: {
-        marquee: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-50%)' } },
-      },
-      animation: {
-        marquee: 'marquee 48s linear infinite',
+        tech: ['Michroma', '"Inter Tight"', 'sans-serif'],
       },
     },
   },
