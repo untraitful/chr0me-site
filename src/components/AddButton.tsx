@@ -14,6 +14,8 @@ export default function AddButton({ size = 'md', children = 'Add to Discord' }: 
   return (
     <a
       href={INVITE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`inline-flex items-center justify-center rounded-full bg-paper font-semibold text-ink transition hover:bg-white ${sizes[size]}`}
     >
       <DiscordIcon className={size === 'sm' ? 'h-4 w-4' : 'h-5 w-5'} />

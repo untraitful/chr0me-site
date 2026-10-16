@@ -1,5 +1,5 @@
-// Replace with your bot's OAuth2 invite URL. Every "Add to Discord" button uses it.
-export const INVITE_URL = '#';
+// Every "Add to Discord" button links here.
+export const INVITE_URL = 'https://discord.gg/larpedcc';
 
 export type ChipTone = 'held' | 'flagged' | 'simulated' | 'missed';
 
@@ -11,13 +11,6 @@ export const chips: { label: string; result: string; tone: ChipTone }[] = [
   { label: 'Anti-raid', result: 'triggered', tone: 'held' },
   { label: 'Bot token abuse', result: 'simulated', tone: 'simulated' },
   { label: '@everyone abuse', result: 'missed', tone: 'missed' },
-];
-
-export const steps: { title: string; body: string; cmd: string; muted?: boolean }[] = [
-  { title: 'Authorize on your server', body: 'Grant a scoped role. chrome only touches servers that opted in.', cmd: '/chrome auth' },
-  { title: 'Pick a scenario', body: 'Choose one vector, or run the full drill end to end.', cmd: '/chrome run antinuke' },
-  { title: 'Run safely', body: 'chrome simulates the attack with dry-run or reversible actions. Nothing real is lost.', cmd: 'mode: dry-run', muted: true },
-  { title: 'Read the report', body: 'See what your protection caught, what it missed, and how fast it moved.', cmd: '/chrome report' },
 ];
 
 export const vectors: { vector: string; simulates: string; should: string }[] = [

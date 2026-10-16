@@ -1,6 +1,5 @@
 import { chips, type ChipTone } from '../content';
 import AddButton from './AddButton';
-import { ArrowDownIcon } from './icons';
 
 const dot: Record<ChipTone, string> = {
   held: 'bg-emerald-400',
@@ -11,10 +10,10 @@ const dot: Record<ChipTone, string> = {
 
 export default function Hero() {
   return (
-    <section className="relative">
+    <section className="relative flex min-h-[100svh] flex-col">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-[radial-gradient(60%_50%_at_50%_0%,rgba(91,141,214,0.10),transparent_70%)]" />
 
-      <div className="mx-auto max-w-6xl px-4 pb-16 pt-20 sm:px-6 sm:pt-28 md:pb-24 md:pt-36">
+      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center px-4 py-20 text-center sm:px-6">
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-mute">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           Authorized red-team drills
@@ -26,23 +25,16 @@ export default function Hero() {
           <span className="text-mute">Find the gaps first.</span>
         </h1>
 
-        <p className="mt-7 max-w-xl text-[17px] leading-relaxed text-mute sm:text-lg">
+        <p className="mx-auto mt-7 max-w-xl text-[17px] leading-relaxed text-mute sm:text-lg">
           chrome runs authorized stress tests against your antinuke and permissions, then shows you exactly what held.
         </p>
 
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mt-10">
           <AddButton />
-          <a
-            href="#how"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3.5 text-[15px] font-medium text-paper transition hover:border-white/30 hover:bg-white/[0.03]"
-          >
-            See how it works
-            <ArrowDownIcon className="h-4 w-4 text-mute" />
-          </a>
         </div>
       </div>
 
-      <div className="marquee-mask group overflow-hidden pb-20 motion-reduce:overflow-x-auto md:pb-28">
+      <div className="marquee-mask group overflow-hidden pb-12 motion-reduce:overflow-x-auto md:pb-16">
         <ul className="flex w-max animate-marquee gap-3 px-4 group-hover:[animation-play-state:paused]" aria-label="Example drill results">
           {[0, 1].map((copy) =>
             chips.map((c) => (
